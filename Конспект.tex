@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian, english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{authblk}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{mathabx}
+\usepackage{titling}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{polynom}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage[left=3cm,right=3cm, top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+\titlelabel{\thetitle.\quad}
+
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
+\textwidth = 16cm
+
+\newcommand{\stkout}[1]{\ifmmode\text{\sout{\ensuremath{#1}}}\else\sout{#1}\fi}
+
+\begin{document}
+
+\renewcommand{\contentsname}{Содержание}
+\title{Алгоритмы компьютерной алгебры}
+\author{Конспект лекций}
+\date{2019}
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\theoremstyle{plain}
+\newtheorem{thm}{Теорема}
+\newtheorem{defn}{Определение}
+\newtheorem{examp}{Пример}
+\newtheorem{lem}{Лемма}
+\newtheorem{sled}{Следствие}
+\newtheorem*{sl*}{Следствие}
+
+\section{Лекция 1.}
+Предмет изучения компьютерной алгебры - точные вычисления. Рассматриваются именно алгоритмы точного, а не приближенного вычисления, как в вычислительной математике. Эти алгоритмы лежат в основе математических пакетов MATLAB, Mathematica. Основной объект исследованй - числовые системы с точными вычислениями.
+
+\subsection{Основные факты из теории многочленов}
+\begin{defn}
+\textbf{Числовым полем} называется множество $\mathrm{F} \subset \mathbb{C}$, если:
+\begin{enumerate}
+\item $0, 1 \in F$
+\item $\mathrm{|F| \ge 2}$
+\item $\forall a,b \in F: a \pm b, ab \in F; b \ne 0, \dfrac{a}{b} \in F.$
+\end{enumerate}
+\end{defn}
+
+\begin{examp}
+Числовые поля - $\mathbb{C}, \mathbb{R}, \mathbb{Q}, \{a + b\sqrt{2},~a,b \in \mathbb{Q}\}$
+\end{examp}
+Множество многочленов над полем рациональных чисел обозначается как $\mathbb{Q}[x]$, над целыми $-~\mathbb{Z}[x]$,
+над произвольным числовым полем $F$ $-~F[x].$
+
+\begin{defn}
+Многочлен $f(x) \in \mathrm{F}[x]$, отличный от константы, называют \textbf{ приводимым} над полем $\mathrm{F}$, если он допускает представление вида $f(x) = \varphi(x) \psi(x)$, где $\varphi(x), \psi(x) \in \mathrm{F}[x]$ и $deg~\varphi,deg~\psi < deg~f$, и \textbf{ неприводимым}, если он не допускает такого разложения (то есть один из многочленов $\varphi, \psi$ является константой).
+\end{defn}
+
+\begin{enumerate}
+\item $deg f = 1$.
+Пусть $f$ допускает разложение: $f(x) = \varphi(x) \psi(x)$. 
+\item $\mathrm{|F| \ge 2}$
+\item $\forall a,b \in F: a \pm b, ab \in F; b \ne 0, \dfrac{a}{b} \in F.$
+\end{enumerate}
+
+\end{document}
