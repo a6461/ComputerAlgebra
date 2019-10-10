@@ -42,14 +42,17 @@
 
 \theoremstyle{plain}
 \newtheorem{thm}{Теорема}
+\newtheorem*{rev*}{Обратное утверждение}
 \newtheorem{defn}{Определение}
 \newtheorem{examp}{Пример}
 \newtheorem{lem}{Лемма}
 \newtheorem{sled}{Следствие}
 \newtheorem*{sl*}{Следствие}
 
+\def\MYdeg{\mathop{\rm deg}\limits}
+
 \section{Лекция 1.}
-Предмет изучения компьютерной алгебры - точные вычисления. Рассматриваются именно алгоритмы точного, а не приближенного вычисления, как в вычислительной математике. Эти алгоритмы лежат в основе математических пакетов MATLAB, Mathematica. Основной объект исследованй - числовые системы с точными вычислениями.
+\hspace{0.5cm}Предмет изучения компьютерной алгебры - точные вычисления. Рассматриваются именно алгоритмы точного, а не приближенного вычисления, как в вычислительной математике. Эти алгоритмы лежат в основе математических пакетов MATLAB, Mathematica.
 
 \subsection{Основные факты из теории многочленов}
 \begin{defn}
@@ -68,14 +71,36 @@
 над произвольным числовым полем $F$ $-~F[x].$
 
 \begin{defn}
-Многочлен $f(x) \in \mathrm{F}[x]$, отличный от константы, называют \textbf{ приводимым} над полем $\mathrm{F}$, если он допускает представление вида $f(x) = \varphi(x) \psi(x)$, где $\varphi(x), \psi(x) \in \mathrm{F}[x]$ и $deg~\varphi,deg~\psi < deg~f$, и \textbf{ неприводимым}, если он не допускает такого разложения (то есть один из многочленов $\varphi, \psi$ является константой).
+Многочлен $f(x) \in \mathrm{F}[x]$, отличный от константы, называют \textbf{ приводимым} над полем $\mathrm{F}$, если он допускает представление вида $f(x) = \varphi(x) \psi(x)$, где $\varphi(x), \psi(x) \in \mathrm{F}[x]$ и $\MYdeg \varphi, \MYdeg \psi < \MYdeg f$, и \textbf{ неприводимым}, если он не допускает такого разложения (то есть один из многочленов $\varphi, \psi$ является константой).
 \end{defn}
 
 \begin{enumerate}
-\item $deg f = 1$.
+\item $\MYdeg f = 1$.
 Пусть $f$ допускает разложение: $f(x) = \varphi(x) \psi(x)$. 
-\item $\mathrm{|F| \ge 2}$
-\item $\forall a,b \in F: a \pm b, ab \in F; b \ne 0, \dfrac{a}{b} \in F.$
+$$\MYdeg_{= 0}\varphi, \MYdeg_{= 0}\psi < \MYdeg f \Rightarrow \MYdeg f = 0.$$
+Полученное противоречие доказывает неприводимость любого многочлена первой степени.
+\item Пусть $\MYdeg f > 1$ и $f(\alpha) = 0, \alpha \in F.$
+$$(x - \alpha) | f(x) \Rightarrow \exists g(x): f(x) = (x - \alpha)g(x).$$
+$$\MYdeg (x - \alpha) = 1 < \MYdeg f.$$
+$$\MYdeg g = \MYdeg f - 1 < \MYdeg f.$$
+Если многочлен $f$ имеет корень в поле $F$, то $f$ приводим над полем $F$. 
 \end{enumerate}
+
+\begin{rev*}
+Если многочлен $f \in F[x]$ степени 2 или 3 приводим над полем $F$, то он имеет в этом поле корень. 
+\end{rev*}
+\begin{proof}[\textbf{Доказательство}]
+Допустим, многочлен приводим, следовательно, $f(x) = \varphi(x) \psi(x)$.
+$$\MYdeg \varphi, \MYdeg \psi < \MYdeg f \Rightarrow \MYdeg \varphi = 1 \text{ или} \MYdeg \psi = 1.$$
+Допустим, $\varphi(x) = ax + b, a \neq 0 \Rightarrow \alpha = -\dfrac{b}{a}, \alpha \in F.$
+\end{proof}
+
+\begin{examp}
+\mbox{}
+\begin{enumerate}
+\item $f(x) = x^2 - 1 = (x - 1)(x + 1).$
+Многочлен приводим над полями $\mathbb{Q}, \mathbb{R}, \mathbb{C}$.
+\end{enumerate}
+\end{examp}
 
 \end{document}
